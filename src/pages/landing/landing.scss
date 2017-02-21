@@ -1,0 +1,84 @@
+@import "../../common/variables.scss";
+
+.track-area {
+    display: flex;
+    flex-direction: row;
+
+    #map {
+        width: 600px;
+        height: 400px
+    }
+
+    .points-search {
+        display: flex;
+        flex-direction: column;
+        margin-right: 15px;
+        max-width: 220px;
+    }
+
+    input {
+        margin-top: 10px;
+    }
+
+    .route {
+        border: 1px solid $ac-light-gray;
+        margin-top: 10px;
+        box-sizing: border-box;
+    }
+
+    .shadow {
+        width: 20px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .route-point {
+        padding: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        box-sizing: border-box;
+
+        .elepsis {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
+        }
+
+        &:nth-child(even) {
+            background-color: $ac-even-list;
+        }
+
+        &:not(:last-child) {
+            border-bottom: 1px solid $ac-light-gray;
+        }
+
+        .about {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            max-width: 160px;
+        }
+
+        icon {
+            flex-grow: 0;
+            flex-shrink: 0;
+            &:hover {
+                color: $warning;
+                transition: color 0.5s;
+            }
+        }
+
+        .name {
+            font-size: 14px;
+        }
+
+        .description {
+            font-size: 12px;
+        }
+    }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "funbox-test",
+  "description": "FunBox test task",
+  "main": "index.html",
+  "dependencies": {
+    "angular": "1.5.9",
+    "angular-ui-router": "0.2.18"
+  },
+  "authors": [
+    "Albert Galiullov"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

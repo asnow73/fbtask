@@ -1,0 +1,13 @@
+@import "../../common/variables.scss";
+
+icon {
+    fill: currentColor;
+    display: inline-block;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+
+    svg {
+        display: block;
+    }
+}

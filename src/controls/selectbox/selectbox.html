@@ -1,0 +1,10 @@
+<label class="title" for="search-query">{{::title}}</label>
+<div class="container">
+    <input type="text" id="search-query" ng-model="filter" ng-change="change({filter: filter})">
+    <div class="options hide">
+        <div class="option" ng-click="selectOption(option)" ng-repeat="option in source">
+            <div class="name">{{::option.name}}</div>
+            <div class="description">{{::option.description}}</div>
+        </div>
+    </div>
+</div>

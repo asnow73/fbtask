@@ -1,0 +1,57 @@
+@import "../../common/variables";
+
+selectbox {
+    display: flex;
+    flex-direction: column;
+
+    .title {
+        font-weight: 500;
+    }
+
+    .container {
+        display: flex;
+        position: relative;
+    }
+
+    input {
+        width: 100%;
+    }
+
+    .options {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        border: 1px solid $ac-light-gray;
+        box-sizing: border-box;
+        background-color: $ac-white;
+    }
+
+    .option {
+        border-bottom: 1px solid $ac-light-gray;
+        padding: 2px 4px;
+        cursor: pointer;
+
+        &:nth-child(even) {
+            background-color: $ac-even-list;
+        }
+
+        &:hover {
+            background-color: $ac-purple-hover;
+        }
+    }
+
+    .name {
+        font-size: 14px;
+    }
+
+    .description {
+        font-size: 12px;
+    }
+
+    .hide {
+        display: none;
+    }
+}

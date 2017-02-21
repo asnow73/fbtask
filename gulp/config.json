@@ -1,0 +1,9 @@
+{
+    "bower": "bower_components/",
+    "src": "src/",
+    "dev": "dev/",
+    "dist": "dist/",
+    "icons": "icons/",
+    "svg": "mdi.svg",
+    "project": "FunBoxTest"
+}
