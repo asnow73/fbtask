@@ -1,6 +1,8 @@
 #fbtask#
 
-Тестовое задание JS (angularjs) от комапнии FunBox
+Тестовое задание JS (angularjs)
+
+
 
 # Требования к наличию ПО:
  - nodejs (http://nodejs.org/download/, npm i)

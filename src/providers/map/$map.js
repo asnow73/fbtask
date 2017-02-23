@@ -1,4 +1,4 @@
-angular.module("funbox.testtask").service("$map", [function() {
+angular.module("funbox.testtask").service("$map", ['$rootScope', function($rootScope) {
 
     this.map = null;
     var self = this;
@@ -40,19 +40,50 @@ angular.module("funbox.testtask").service("$map", [function() {
         );
     };
 
+    function getPointCoords(points) {
+        return points.map(function(point){
+            return point.coords;
+        });
+    }
+
     // построение маршрута по массиву координат
     this.buildRoute = function(points) {
         self.map.geoObjects.removeAll();
-        if (points.length > 1) {
-            ymaps.route(points).then(
-                function (route) {
-                    self.map.geoObjects.add(route);
-                }
-            );
-        } else if (points.length == 1) {
-            var start = null;
-            start = new ymaps.Placemark(points[0]);
-            self.map.geoObjects.add(start);
+        var coords = getPointCoords(points);
+        var myPolyline = new ymaps.Polyline(
+            coords,
+            {},
+            {
+                strokeWidth: 2,
+                strokeColor: '#0000FF',
+                draggable: false
+            }
+        );
+        self.map.geoObjects.add(myPolyline);
+
+        for (var i = 0; i < points.length; ++i) {
+            var point = points[i];
+            var placemark = new ymaps.Placemark(point.coords, {
+                //hintContent: 'Москва!',
+                balloonContent: point.name
+            },{
+                draggable: true
+            });
+            placemark.originalPoint = point;
+            placemark.events.add("dragend", function (event) {
+                var movedPlacemark = event.originalEvent.target;
+                var coords = movedPlacemark.geometry.getCoordinates();
+                self.search(coords).then(function(objects){
+                    var firstPoint = objects[0];
+                    movedPlacemark.originalPoint.name = firstPoint.name;
+                    movedPlacemark.originalPoint.description = firstPoint.description;
+                    movedPlacemark.originalPoint.coords = firstPoint.coords;
+                    self.buildRoute(points);
+                    $rootScope.$broadcast('map-changed');
+                });
+            });
+
+            self.map.geoObjects.add(placemark);
         }
     }
 

@@ -16,23 +16,20 @@
             });
         };
 
-        function getPointCoords(points) {
-            return points.map(function(point){
-                return point.coords;
-            });
-        }
-
         $scope.map.add = function (point) {
             $scope.map.route.push(point);
-            var points = getPointCoords($scope.map.route);
-            $map.buildRoute(points);
+            $map.buildRoute($scope.map.route);
         };
 
         $scope.map.remove = function(point, index) {
             $scope.map.route.splice(index, 1);
-            var points = getPointCoords($scope.map.route);
-            $map.buildRoute(points);
-        }
+            $map.buildRoute($scope.map.route);
+        };
+
+        $scope.$on('map-changed', function(){
+            $scope.$apply();
+        });
+
 
     }]);
 })();
