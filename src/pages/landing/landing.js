@@ -30,6 +30,13 @@
             $scope.$apply();
         });
 
+        document.getElementsByClassName('route')[0].addEventListener('item-moved', function(e) {
+            console.log('moved', e.data.oldIndex, e.data.newIndex);
+            var tmp = $scope.map.route.splice(e.data.oldIndex, 1);
+            $scope.map.route.splice(e.data.newIndex,0,tmp[0]);
+            $scope.$apply();
+            $map.buildRoute($scope.map.route);
+        });
 
     }]);
 })();

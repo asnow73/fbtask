@@ -1,0 +1,67 @@
+@import "../../common/variables.scss";
+
+.route {
+    border: 1px solid $ac-light-gray;
+    margin-top: 10px;
+    box-sizing: border-box;
+}
+
+.route-point {
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    cursor: pointer;
+
+    &.insert-bottom {
+        border-bottom: 2px solid $ac-blue;;
+    }
+    &.insert-top {
+        border-top: 2px solid $ac-blue;
+    }
+
+    &.bordered {
+        border: 1px solid $ac-light-gray;
+        background-color: $ac-white;
+    }
+
+    .elepsis {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+
+    &:nth-child(even) {
+        background-color: $ac-even-list;
+    }
+
+    &:not(:last-child) {
+        border-bottom: 1px solid $ac-light-gray;
+    }
+
+    .about {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        max-width: 160px;
+    }
+
+    icon {
+        flex-grow: 0;
+        flex-shrink: 0;
+        &:hover {
+            color: $warning;
+            transition: color 0.5s;
+        }
+    }
+
+    .name {
+        font-size: 14px;
+    }
+
+    .description {
+        font-size: 12px;
+    }
+}

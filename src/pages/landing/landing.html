@@ -3,7 +3,7 @@
 
         <selectbox source="map.points" title="Название точки маршрута" on-select="map.add(point)" on-change="map.search(filter)"></selectbox>
 
-        <div class="route" ng-show="map.route.length">
+        <items-list class="route" ng-show="map.route.length">
             <div class="route-point" ng-repeat="point in map.route">
                 <div class="about">
                     <div class="name elepsis">{{point.name}}</div>
@@ -13,7 +13,7 @@
                     <icon svg-icon="delete"></icon>
                 </div>
             </div>
-        </div>
+        </items-list>
     </div>
 
     <div id="map"></div>
